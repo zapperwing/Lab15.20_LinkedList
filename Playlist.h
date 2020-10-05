@@ -28,9 +28,18 @@ class PlaylistNode {
 };
 
 class Playlist {
-    private:
-
     public:
+        Playlist()
+        void AddSong(string ID, string song, string artist, int length);
+        bool RemoveSong(string ID);
+        void PrintList();
+        bool ChangePosition(int oldPos, int newPos);
+        void SongsByArtist(string artist);
+        int totalTime();
+
+    private:
+        PlaylistNode* head;
+        PlaylistNode* tail;
   
 };
 
