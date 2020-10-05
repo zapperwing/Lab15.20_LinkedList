@@ -1,4 +1,4 @@
-#infdef PLAYLIST_H
+#ifndef PLAYLIST_H
 #define PLAYLIST_H
 #include <iostream>
 #include <string>
@@ -8,8 +8,9 @@ using namespace std;
 class PlaylistNode {
     public:
         PlaylistNode();
-        PlaylistNode(string ID, string song, string artist, int length);
-        void InsertAfter(PlaylistNode* next);
+        PlaylistNode(string id, string songName, string artistName, int lengthTime);
+        void InsertAfter(PlaylistNode* ptr);
+        void SetNext(PlaylistNode* ptr);
         string getID();
         string getSong();
         string getArtist();
@@ -29,8 +30,8 @@ class PlaylistNode {
 
 class Playlist {
     public:
-        Playlist()
-        void AddSong(string ID, string song, string artist, int length);
+        Playlist();
+        void AddSong(string id, string songName, string artistName, int lengthTime);
         bool RemoveSong(string ID);
         void PrintList();
         bool ChangePosition(int oldPos, int newPos);
