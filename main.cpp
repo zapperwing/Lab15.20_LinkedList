@@ -4,6 +4,7 @@ using namespace std;
 
 void PrintMenu(string title);
 
+
 int main() {
    string playlistTitle;
    cout << "Enter playlist's title: ";
@@ -23,10 +24,9 @@ void PrintMenu(string title) {
    int length;
    int oldPos;
    int newPos;
-   char choice;
+   char userSelection;
 
-   while (true)
-   {
+   while (true) {
        cout << endl << title << " PLAYLIST MENU" << endl;
        cout << "a - Add song" << endl;
        cout << "d - Remove song" << endl;
@@ -37,19 +37,18 @@ void PrintMenu(string title) {
        cout << "q - Quit" << endl << endl;
 
        cout << "Choose an option: ";
-       cin >> choice;
-       cin.ignore(); //flush newline
+       cin >> userSelection;
+       cin.ignore(); 
 
-       if (choice == 'q' || choice == 'Q')
-       {
+       if (userSelection == 'q' || userSelection == 'Q') {
            exit(1);
        }
-       else if (choice == 'a' || choice == 'A')
-       {
+
+       else if (userSelection == 'a' || userSelection == 'A') {
            cout << "\nADD SONG" << endl;
            cout << "Enter song's unique ID: ";
            cin >> id;
-           cin.ignore();//ignore newline
+           cin.ignore();
            cout << "Enter song's name: ";
            getline(cin, nameOfSong);
            cout << "Enter artist's name: ";
@@ -58,15 +57,15 @@ void PrintMenu(string title) {
            cin >> length;
            list.AddSong(id, nameOfSong, nameOfArtist, length);
        }
-       else if (choice == 'd' || choice == 'D')
-       {
+
+       else if (userSelection == 'd' || userSelection == 'D') {
            cout << "\nREMOVE SONG" << endl;
            cout << "Enter song's unique ID: ";
            cin >> id;
            list.RemoveSong(id);
        }
-       else if (choice == 'c' || choice == 'C')
-       {
+
+       else if (userSelection == 'c' || userSelection == 'C') {
            cout << "\nCHANGE POSITION OF SONG" << endl;
            cout << "Enter song's current position: ";
            cin >> oldPos;
@@ -74,26 +73,27 @@ void PrintMenu(string title) {
            cin >> newPos;
            list.ChangePosition(oldPos, newPos);
        }
-       else if (choice == 's' || choice == 'S')
-       {
+
+       else if (userSelection == 's' || userSelection == 'S') {
            cout << "\nOUTPUT SONGS BY SPECIFIC ARTIST" << endl;
            cout << "Enter artist's name: ";
            getline(cin, nameOfArtist);          
            list.SongsByArtist(nameOfArtist);
        }
-       else if (choice == 't' || choice == 'T')
-       {
+
+       else if (userSelection == 't' || userSelection == 'T') {
            cout << "\nOUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)" << endl;
            cout << "Total time: " << list.totalTime() << " seconds" << endl;
        }
-       else if (choice == 'o' || choice == 'O')
-       {
+
+       else if (userSelection == 'o' || userSelection == 'O') {
            cout << endl << title << " - OUTPUT FULL PLAYLIST" << endl;
            list.PrintList();
        }
-       else
-       {
-           cout << "Invalid menu choice! Please try again." << endl;
+       else {
+           cout << "Invalid selection. Please try again." << endl;
        }
+
    }
-} // end of PrintMenu function
+   
+} 
