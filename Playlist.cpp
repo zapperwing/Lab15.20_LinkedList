@@ -76,7 +76,7 @@ void Playlist::AddSong(string id, string songName, string artistName, int length
 
 bool Playlist::RemoveSong(string id) {
    if (head == NULL) {
-       cout << "Playlist is empty" << endl;
+       cout << endl << "Playlist is empty" << endl;
        return false;
    }
 
@@ -106,7 +106,7 @@ bool Playlist::RemoveSong(string id) {
            tail = prev;
        }
    
-       cout << "\"" << curr->GetSongName() << "\" removed" << endl;
+       cout << "\"" << curr->GetSongName() << "\" removed." << endl;
        delete curr;
        return true;
    }
@@ -148,13 +148,10 @@ bool Playlist::ChangePosition(int oldPos, int newPos) {
        PlaylistNode* curr1 = curr;
        prev = NULL;
        curr = head;
-       //now locate the new position
        for (pos = 1; curr != NULL && pos < newPos; pos++) {
            prev = curr;
            curr = curr->GetNext();
        }
-
-       //insert in located position
 
        if (prev == NULL) {
            curr1->SetNext(head);
@@ -212,7 +209,7 @@ int Playlist::totalTime() {
 
 void Playlist::PrintList() {
    if (head == NULL) {
-       cout << "Playlist is empty" << endl;
+       cout << endl << "Playlist is empty" << endl;
    }
    else {
        PlaylistNode* curr = head;
