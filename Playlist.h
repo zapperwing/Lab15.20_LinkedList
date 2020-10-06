@@ -11,10 +11,10 @@ class PlaylistNode {
         PlaylistNode(string id, string songName, string artistName, int lengthTime);
         void InsertAfter(PlaylistNode* ptr);
         void SetNext(PlaylistNode* ptr);
-        string getID();
-        string getSong();
-        string getArtist();
-        int getLength();
+        string GetID();
+        string GetSongName();
+        string GetArtistName();
+        int GetSongLength();
         PlaylistNode* GetNext();
         void PrintPlaylistNode();
 

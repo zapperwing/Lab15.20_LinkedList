@@ -31,19 +31,19 @@ PlaylistNode* PlaylistNode::GetNext() {
     return next;
 }
 
-string PlaylistNode::getID() {
+string PlaylistNode::GetID() {
     return ID;
 }
 
-string PlaylistNode::getSong() {
+string PlaylistNode::GetSongName() {
     return song;
 }
 
-string PlaylistNode::getArtist() {
+string PlaylistNode::GetArtistName() {
     return artist;
 }
 
-int PlaylistNode::getLength() {
+int PlaylistNode::GetSongLength() {
     return length;
 }
 
@@ -83,7 +83,7 @@ bool Playlist::RemoveSong(string id) {
    PlaylistNode* curr = head;
    PlaylistNode* prev = NULL;
    while (curr != NULL) {
-       if (curr->getID() == id) {
+       if (curr->GetID() == id) {
            break;
        }
        prev = curr;
@@ -91,7 +91,7 @@ bool Playlist::RemoveSong(string id) {
    }
 
    if (curr == NULL) {
-       cout << "\"" << curr->getSong() << "\" is not found" << endl;
+       cout << "\"" << curr->GetSongName() << "\" is not found" << endl;
        return false;
    }
    else {
@@ -106,7 +106,7 @@ bool Playlist::RemoveSong(string id) {
            tail = prev;
        }
    
-       cout << "\"" << curr->getSong() << "\" removed" << endl;
+       cout << "\"" << curr->GetSongName() << "\" removed" << endl;
        delete curr;
        return true;
    }
@@ -132,7 +132,7 @@ bool Playlist::ChangePosition(int oldPos, int newPos) {
        curr = curr->GetNext();
    }
    if (curr != NULL) {
-       string currentSong = curr->getSong();
+       string currentSong = curr->GetSongName();
 
        if (prev == NULL) {
            head = curr->GetNext();
@@ -187,7 +187,7 @@ void Playlist::SongsByArtist(string artist) {
        PlaylistNode* curr = head;
        int i = 1;
        while (curr != NULL) {
-           if (curr->getArtist() == artist) {
+           if (curr->GetArtistName() == artist) {
                cout << endl << i << "." << endl;
                curr->PrintPlaylistNode();              
            }
@@ -202,7 +202,7 @@ int Playlist::totalTime() {
    PlaylistNode* curr = head;
 
    while (curr != NULL) {
-       total += curr->getLength();
+       total += curr->GetSongLength();
        curr = curr->GetNext();
    }
 
