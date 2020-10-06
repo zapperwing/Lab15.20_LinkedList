@@ -1,9 +1,9 @@
 #include "Playlist.h"
 
 PlaylistNode::PlaylistNode() {
-    ID = "noname";
-    song = "noname";
-    artist = "noname";
+    ID = "none";
+    song = "none";
+    artist = "none";
     length = 0;
     next = 0;
 }
@@ -76,7 +76,7 @@ void Playlist::AddSong(string id, string songName, string artistName, int length
 
 bool Playlist::RemoveSong(string id) {
    if (head == NULL) {
-       cout << "Playlist is empty." << endl;
+       cout << "Playlist is empty" << endl;
        return false;
    }
 
@@ -114,7 +114,7 @@ bool Playlist::RemoveSong(string id) {
 
 bool Playlist::ChangePosition(int oldPos, int newPos) {
    if (head == NULL) {
-       cout << "Playlist is empty." << endl;
+       cout << "Playlist is empty" << endl;
        return false;
    }
 
@@ -181,7 +181,7 @@ bool Playlist::ChangePosition(int oldPos, int newPos) {
 
 void Playlist::SongsByArtist(string artist) {
    if (head == NULL) {
-       cout << "Playlist is empty." << endl;
+       cout << "Playlist is empty" << endl;
    }
    else {
        PlaylistNode* curr = head;
@@ -212,7 +212,7 @@ int Playlist::totalTime() {
 
 void Playlist::PrintList() {
    if (head == NULL) {
-       cout << "Playlist is empty." << endl;
+       cout << "Playlist is empty" << endl;
    }
    else {
        PlaylistNode* curr = head;

@@ -7,7 +7,7 @@ void PrintMenu(string title);
 
 int main() {
    string playlistTitle;
-   cout << "Enter playlist's title: ";
+   cout << "Enter playlist's title:" << endl;
    getline(cin, playlistTitle);
 
    PrintMenu(playlistTitle);  
@@ -36,7 +36,7 @@ void PrintMenu(string title) {
        cout << "o - Output full playlist" << endl;
        cout << "q - Quit" << endl << endl;
 
-       cout << "Choose an option: ";
+       cout << "Choose an option:";
        cin >> userSelection;
        cin.ignore(); 
 
